@@ -1,0 +1,3 @@
+[submodule "Task14/lsa"]
+	path = Task14/lsa
+	url = https://github.com/Skycker/lsa
