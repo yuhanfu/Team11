@@ -1,22 +1,26 @@
-Data Cleaning:
+1. Data Visualizing:
+We implemented some basic data exploration.
+
+2. Data Cleaning:
 For the data cleaning step, we first performed a spell-check and corrected typos in search queries. Next, we used NLTK's stopwords list to remove common stopwords and WordNetLemmatizer to perform stemming and lemmatization.
 
-Feature Engineering:
-We added features to the model one by one, and also combined features to improve our performance.
-Using our intuition to create features, we first used different measures of similarity to convert text features into machine-readable format. Features considered include unigrams, bigrams, TF-IDF/cosine similarity, Jaccard similarity, and Dice coefficient. The Word2vec model was also used, since we want to consider word context as well.
-We also extracted features from the attributes file. These features are brand names, color, and materia. However, out of those, brand names seems to be the only useful one.
-Other features we thought about include word matching and query length.
+3. Feature Engineering:
+This is what we think the most important part.We added features to the model one by one, and also combined features to improve our performance.Using our intuition to create features, we first used different measures of similarity to convert text features into machine-readable format. Features considered include unigrams, bigrams, TF-IDF/cosine similarity, Jaccard similarity, and Dice coefficient. The Word2vec model was also used, since we want to consider word context as well.
+
+We also extracted features from the attributes file. These features are brand names, color, and materia. However, out of those, brand names seems to be the only useful one.Other features we thought about include word matching and query length.
+
 Jaccard similarity and the Dice coefficient are similar, so we opted for the Dice coefficient, which had a better performance. Bigrams had a worse performance than unigrams, which makes sense since the length of search queries tends to be short, and tend to be comprised of separate words rather than phrases.
+
 We also found that while certain features on their own may perform worse than our baseline model, combining them with other features actually increased performance. For example, the Word2vec model had a worse performance than TF-IDF, but using both these features together gave a better performance than either alone.
 
-Model:
+4. Model:
 We started with linear regression. After feature engineering, we also tried random forests and gradient boosted tree regression. The latter had the best performance.
 
-Tuning:
+5. Tuning:
 We tried using ParamGridBuilder to tune parameters, but found that performance got worse when we tried to optimize. For some reason, default settings work best. Since the purpose of tuning is just to improve performance, we will just use default settings.
 
-Insights:
-To improve the search results, we can improve the search engine. First, spell-checking and correcting can be done when the customer enters a query. A more standardized dictionary can be used when searching that may include brand names and domain-specific words and abbreviations. Furthermore, a quick glance at the search queries shows that the product description may have a lot of words that customers aren't likely to search for, so refining product descriptions may improve search results.
+6. Insights:
+To improve the search results, we can improve the search engine. First, spell-checking and correcting can be done when the customer enters a query. A more standardized dictionary can be used when searching that may include brand names and domain-specific words and abbreviations. Second, a quick glance at the instances with most significant difference shows that some product description may have a lot of words that customers aren't likely to search for, so refining product descriptions may improve search results.
 
-Future Work:
-First, since our feature engineering has largely been through our intuition, our feature space may not be very complete. For example, for the Word2vec model we can have many more features. Then, we can perform a feature selection to improve our model. Furthermore, we are currently using a very general corpus of words (Wikipedia's pre-trained data). Using a more domain-specific corpus will likely improve performance. In the future, using neural networks and deep learning to automatically select features may be helpful.
+7. Future Work:
+First, since our feature engineering has largely been through our intuition, our feature space may not be very complete. For example, for the Word2vec model we can have many more features. we need to adopt a systematic way to build the feature space. First, we could extract hundreads of features from the dataset. Then, we can perform a feature selection(like top 20 or 50, based on the coefficiency to the class value) to select the features. Furthermore, we are currently using a very general corpus of words (Wikipedia's pre-trained data). Using a more domain-specific corpus will likely improve performance. In the future, using neural networks and deep learning to automatically select features may be helpful.
