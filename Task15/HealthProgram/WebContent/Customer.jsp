@@ -54,17 +54,27 @@ For more information, please review the Privacy section.
 				 			</textarea>
 				 		</td>
 				 	</tr>
-			 			<td valign="bottom">
-				 			<form action="/action_page.php" method="get">
-								  <input type="checkbox" name="vehicle" value="enrollment"> I have read the above mentioned information
+			 			<td>
+								  <input type="checkbox" id="myCheck" onclick="myFunction()"> I have read the above mentioned information
 								  <br>
 								  <br>
-								  <button class="btn btn-lg btn-primary btn-block" type="button" onclick="{location.href=''}">click to agree on our enrollment program</button>
-  							</form>
+								  <button id="button" class="btn btn-lg btn-primary btn-block" type="button" onclick="{location.href='Enroll.jsp'}" disabled>click to agree on our enrollment program</button>
 				 		</td>
+				 		
+
 				 </table>
 				</form>		
 				<br><br><br><br>
 			</div>
+<script>
+	function myFunction() {
+	    var checkBox = document.getElementById("myCheck");
+	    if (checkBox.checked == true){
+	    		document.getElementById("button").disabled = false;
+	    } else {
+	    		document.getElementById("button").disabled = true;
+	    }
+	}
+</script>	
 </body>
 </html>
