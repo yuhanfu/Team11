@@ -9,28 +9,28 @@
 		<link href="offcanvas.css" rel="stylesheet">
 	</head>
 	
-	<body>
+	<body onload="document.getElementById('email').focus()">
 		<jsp:include page="CustomerTemplate.html" />				
 				<div class="col-sx-5 col-sm-5 col-md-offset-3">
-			      <form class="form-signin" action = "Login" method="POST">
-			      	<br>
-			        <h2 class="form-signin-heading">Please sign in</h2>
-			        <label for="inputEmail" class="sr-only">Email address</label>
-
-			        <input type="text" name="email" value="${form.email}" class="form-control" placeholder="Email address"/>
-			        <br>
-
-			        <label for="inputPassword" class="sr-only">Password</label>
-
-			        <input type="password" name="password" class="form-control" placeholder="Password" />
-			        <div class="checkbox">
-			          <label>
-			            <input type="checkbox" value="remember-me"> Remember me
-			          </label>
-			        </div>
-			        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button" value="Login">Sign in</button>
-			        <br><br><br><br><br><br>
-			      </form>    
+			    		<form class="form-signin" action = "login.jsp" method="POST">
+				      	<br>
+				        <h2 class="form-signin-heading">Please sign in</h2>
+				        <label for="inputEmail" class="sr-only">Email address</label>
+	
+				        <input type="text" id="email" name="email" value="${form.email}" class="form-control" placeholder="Email address"/>
+				        <br>
+	
+				        <label for="inputPassword" class="sr-only">Password</label>
+	
+				        <input type="password" name="password" class="form-control" placeholder="Password" />
+				        <div class="checkbox">
+				          <label>
+				            <input type="checkbox" value="remember-me"> Remember me
+				          </label>
+				        </div>
+				        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button" value="Login">Sign in</button>
+	        		 	</form>
+			        <br><br><br><br><br><br>    
 				</div>
 	</body>
 </html>
