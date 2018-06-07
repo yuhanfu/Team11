@@ -20,25 +20,19 @@
 			        <label for="inputEmail"">Email address</label>
 			        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Please enter your email address">
 			        <br>
-
 			        <label for="inputPassword">Address</label>
 			        <input  name="address" id="inputAddress" class="form-control" placeholder="Please enter your address">
 			        <br>
-
 			        <label for="inputPhoneNumber">Phone Number</label>
 			        <input name="phoneNumber" id="inputPhone" class="form-control" placeholder="Please enter your phone number">
 			        <br>
-
 			        <label for="inputPassword">First Name</label>
 			        <input type="text" name="firstname" id="InputFisrtName" class="form-control" placeholder="Please enter your first name">
 			        <br>
-
 			        <label for="inputPassword">Last Name</label>
 			        <input type="text" name="lastname" id="InputLastName" class="form-control" placeholder="Please enter your last name">
 			        <br>
-
 			        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button" value="enroll">click to confirm enrollment</button>
-
 			        <br><br><br><br><br><br>
 			      </form>    
 				</div>

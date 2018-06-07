@@ -24,14 +24,14 @@ import webapp.health.formbean.EnrollForm;
 @WebServlet("/Enroll")
 public class Enroll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EnrolledUserDAO EnrolledUserDAO;
+	private EnrolledUserDAO enrolledUserDAO;
 
 	public void init() throws ServletException {
 		String jdbcDriverName = "com.mysql.jdbc.Driver";
 		String jdbcURL = "jdbc:mysql:///test?useSSL=false";
 		try {
 			ConnectionPool cp = new ConnectionPool(jdbcDriverName, jdbcURL);
-			EnrolledUserDAO = new EnrolledUserDAO(cp, "EnrolledCustomer");
+			enrolledUserDAO = new EnrolledUserDAO(cp, "enrolled_customer");
 		} catch (DAOException e) {
 			throw new ServletException(e);
 		}
@@ -53,12 +53,12 @@ public class Enroll extends HttpServlet {
 			request.setAttribute("form", form);
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				RequestDispatcher d = request.getRequestDispatcher("Enroll.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("enroll.jsp");
 				d.forward(request, response);
 				return;
 			}
 			if (form.getButton().equals("enroll")) {
-				if (EnrolledUserDAO.read(form.getEmail()) == null) {
+				if (enrolledUserDAO.read(form.getEmail()) == null) {
 		    			EnrolledUser user = new EnrolledUser();
 					user.setEmail(form.getEmail());
 					user.setFirstName(form.getFirstName());
@@ -66,7 +66,7 @@ public class Enroll extends HttpServlet {
 					user.setAddress(form.getAddress());
 					user.setPhoneNumber(form.getPhoneNumber());
 					try {
-						EnrolledUserDAO.create(user);
+						enrolledUserDAO.create(user);
 						session.setAttribute("EnrolledUser", user);
 						System.out.println("SUCCESS");
 						return;

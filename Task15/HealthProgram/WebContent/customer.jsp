@@ -56,7 +56,7 @@ For more information, please review the Privacy section.
 								  <input type="checkbox" id="myCheck" onclick="myFunction()"> I have read the above mentioned information
 								  <br>
 								  <br>
-								  <button id="button" class="btn btn-lg btn-primary btn-block" type="button" onclick="{location.href='Enroll.jsp'}" disabled>click to agree on our enrollment program</button>
+								  <button id="button" class="btn btn-lg btn-primary btn-block" type="button" onclick="{location.href='enroll.jsp'}" disabled>click to agree on our enrollment program</button>
 				 		</td>
 				 		
 

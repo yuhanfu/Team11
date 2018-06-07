@@ -41,7 +41,8 @@ public class Login extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user") != null) {
-			response.sendRedirect("Customer.jsp");
+			RequestDispatcher d = request.getRequestDispatcher("customer.jsp");
+			d.forward(request, response);
 			return;
 		}
 		List<String> errors = new ArrayList<String>();
@@ -72,7 +73,7 @@ public class Login extends HttpServlet {
 					return;
 				}
 				session.setAttribute("user", user);
-				RequestDispatcher d = request.getRequestDispatcher("Customer.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("customer.jsp");
 				d.forward(request, response);
 				//response.sendRedirect("homepage.jsp");
 			}
