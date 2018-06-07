@@ -17,11 +17,9 @@ import org.genericdao.DAOException;
 import org.genericdao.DuplicateKeyException;
 import org.genericdao.RollbackException;
 
-import blog.databean.User;
 import webapp.health.dao.EnrolledUserDAO;
-import webapp.health.dao.UserDAO;
+import webapp.health.databean.EnrolledUser;
 import webapp.health.formbean.EnrollForm;
-import webapp.health.formbean.LoginForm;
 
 @WebServlet("/Enroll")
 public class Enroll extends HttpServlet {
@@ -51,60 +49,39 @@ public class Enroll extends HttpServlet {
 		request.setAttribute("errors", errors);
 		
 		try {
-			LoginForm form = new LoginForm(request);
+			EnrollForm form = new EnrollForm(request);
 			request.setAttribute("form", form);
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				RequestDispatcher d = request.getRequestDispatcher("login.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("Enroll.jsp");
 				d.forward(request, response);
 				return;
 			}
-			if (form.getButton().equals("Login")) {
-				User user = userDAO.read(form.getEmail());
-				if (user == null) {
-					errors.add("No such user");
-					RequestDispatcher d = request.getRequestDispatcher("login.jsp");
-					d.forward(request, response);
-					return;
+			if (form.getButton().equals("enroll")) {
+				if (EnrolledUserDAO.read(form.getEmail()) == null) {
+		    			EnrolledUser user = new EnrolledUser();
+					user.setEmail(form.getEmail());
+					user.setFirstName(form.getFirstName());
+					user.setLastName(form.getLastName());
+					user.setAddress(form.getAddress());
+					user.setPhoneNumber(form.getPhoneNumber());
+					try {
+						EnrolledUserDAO.create(user);
+						session.setAttribute("EnrolledUser", user);
+						System.out.println("SUCCESS");
+						return;
+					} catch (DuplicateKeyException e) {
+	                    return;
+					}
 				}
-				System.out.println(form.getEmail());
-				System.out.println(form.getPassword());
-				if (!form.getPassword().equals(user.getPassword())) {
-					errors.add("Incorrect password");
-					RequestDispatcher d = request.getRequestDispatcher("login.jsp");
-					d.forward(request, response);
-					return;
-				}
-				session.setAttribute("user", user);
-				RequestDispatcher d = request.getRequestDispatcher("Customer.jsp");
-				d.forward(request, response);
-				//response.sendRedirect("homepage.jsp");
 			}
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			RequestDispatcher d = request.getRequestDispatcher("error.jsp");
 			d.forward(request, response);
 		}
-		
-
-	    if (userDAO.read(form.getEmail()) == null) {
-    			User user = new User();
-		user.setEmail(form.getEmail());
-		user.setFirstName(form.getFirstName());
-		user.setLastName(form.getLastName());
-		user.setPassword(form.getPassword());
-		try {
-			userDAO.create(user);
-			session.setAttribute("user", user);
-			System.out.println("SUCCESS");
-			return ("home.do");
-		} catch (DuplicateKeyException e) {
-            form.addFieldError("userName", "A user with this name already exists");
-            return "Register.jsp";
-		}
-	    }
 	}
-
+		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
