@@ -22,11 +22,11 @@
 			        <br>
 
 			        <label for="inputPassword">Address</label>
-			        <input type="address" name="address" id="inputAddress" class="form-control" placeholder="Please enter your address">
+			        <input  name="address" id="inputAddress" class="form-control" placeholder="Please enter your address">
 			        <br>
 
 			        <label for="inputPhoneNumber">Phone Number</label>
-			        <input type="phone" name="phoneNumber" id="inputPhone" class="form-control" placeholder="Please enter your phone number">
+			        <input name="phoneNumber" id="inputPhone" class="form-control" placeholder="Please enter your phone number">
 			        <br>
 
 			        <label for="inputPassword">First Name</label>
@@ -37,7 +37,7 @@
 			        <input type="text" name="lastname" id="InputLastName" class="form-control" placeholder="Please enter your last name">
 			        <br>
 
-			        <button class="btn btn-lg btn-primary btn-block" type="button" name="button" onclick="{location.href=''}">click to confirm enrollment</button>
+			        <button class="btn btn-lg btn-primary btn-block" type="submit" name="button" value="enroll">click to confirm enrollment</button>
 
 			        <br><br><br><br><br><br>
 			      </form>    
