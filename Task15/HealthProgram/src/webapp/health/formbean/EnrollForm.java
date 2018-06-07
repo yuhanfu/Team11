@@ -49,10 +49,11 @@ public class EnrollForm {
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 
-		if (email == null || email.length() == 0)
+		if (email == null || email.length() == 0) {
 			errors.add("Email address is required");
-		if (!email.matches(".*[@].*[\\.].*"))
+		} else if (!email.matches(".*[@].*[\\.].*")) {
 			errors.add("Invalid email");
+		}
 		if (button == null)
 			errors.add("Button is required");
 		if (errors.size() > 0)

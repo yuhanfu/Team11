@@ -1,7 +1,7 @@
 1. Login username for customer: jason@gmail.com
 2. Login password for customer: 123
-3. Customer Url:
-4. Auditor  Url:
+3. Customer Url: http://ec2-18-205-191-73.compute-1.amazonaws.com:8080/HealthProgram/
+4. Auditor  Url: http://ec2-18-205-191-73.compute-1.amazonaws.com:8080/HealthProgram/Auditor
 5. Auditor doesn't have login/logout function currently
 6. Several enrolled users have been created and stored in the database
 7. Some links in navigation bar are static(haven't been implemented)

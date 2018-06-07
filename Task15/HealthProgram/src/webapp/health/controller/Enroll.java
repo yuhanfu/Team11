@@ -53,7 +53,7 @@ public class Enroll extends HttpServlet {
 			request.setAttribute("form", form);
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
-				RequestDispatcher d = request.getRequestDispatcher("enroll.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("customer.jsp");
 				d.forward(request, response);
 				return;
 			}
