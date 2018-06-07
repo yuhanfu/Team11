@@ -59,7 +59,7 @@ public class Enroll extends HttpServlet {
 			}
 			if (form.getButton().equals("enroll")) {
 				if (enrolledUserDAO.read(form.getEmail()) == null) {
-		    			EnrolledUser user = new EnrolledUser();
+		    		EnrolledUser user = new EnrolledUser();
 					user.setEmail(form.getEmail());
 					user.setFirstName(form.getFirstName());
 					user.setLastName(form.getLastName());
@@ -69,11 +69,14 @@ public class Enroll extends HttpServlet {
 						enrolledUserDAO.create(user);
 						session.setAttribute("EnrolledUser", user);
 						System.out.println("SUCCESS");
-						return;
 					} catch (DuplicateKeyException e) {
-	                    return;
+	                    e.printStackTrace();
 					}
+					RequestDispatcher d = request.getRequestDispatcher("success.jsp");
+					d.forward(request, response);
 				}
+				RequestDispatcher d = request.getRequestDispatcher("enroll.jsp");
+				d.forward(request, response);
 			}
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
