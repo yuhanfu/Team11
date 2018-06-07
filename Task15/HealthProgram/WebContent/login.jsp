@@ -12,7 +12,7 @@
 	<body onload="document.getElementById('email').focus()">
 		<jsp:include page="CustomerTemplate.html" />				
 				<div class="col-sx-5 col-sm-5 col-md-offset-3">
-			    		<form class="form-signin" action = "login.jsp" method="POST">
+			    		<form class="form-signin" action="Login" method="GET">
 				      	<br>
 				        <h2 class="form-signin-heading">Please sign in</h2>
 				        <label for="inputEmail" class="sr-only">Email address</label>

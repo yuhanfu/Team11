@@ -12,32 +12,32 @@
 	<body>
 		<jsp:include page="CustomerTemplate.html" />				
 				<div class="col-sx-5 col-sm-5 col-md-offset-3">
-			      <form class="form-signin">
+			      <form class="form-signin" action="Enroll" method="GET">
 			      	<br><br>
 			        <h3 class="form-signin-heading">Please Fill out the information</h3><br><br>
 
 
 			        <label for="inputEmail"">Email address</label>
-			        <input type="email" id="inputEmail" class="form-control" placeholder="Please enter your email address">
+			        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Please enter your email address">
 			        <br>
 
 			        <label for="inputPassword">Address</label>
-			        <input type="address" id="InputPassword" class="form-control" placeholder="Please enter your address">
+			        <input type="address" name="address" id="inputAddress" class="form-control" placeholder="Please enter your address">
 			        <br>
 
 			        <label for="inputPhoneNumber">Phone Number</label>
-			        <input type="phone" id="PasswordConfirmation" class="form-control" placeholder="Please enter your phone number">
+			        <input type="phone" name="phoneNumber" id="inputPhone" class="form-control" placeholder="Please enter your phone number">
 			        <br>
 
 			        <label for="inputPassword">First Name</label>
-			        <input type="text" id="InputFisrtName" class="form-control" placeholder="Please enter your first name">
+			        <input type="text" name="firstname" id="InputFisrtName" class="form-control" placeholder="Please enter your first name">
 			        <br>
 
 			        <label for="inputPassword">Last Name</label>
-			        <input type="text" id="InputLastName" class="form-control" placeholder="Please enter your last name">
+			        <input type="text" name="lastname" id="InputLastName" class="form-control" placeholder="Please enter your last name">
 			        <br>
 
-			        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="{location.href=''}">click to confirm enrollment</button>
+			        <button class="btn btn-lg btn-primary btn-block" type="button" name="button" onclick="{location.href=''}">click to confirm enrollment</button>
 
 			        <br><br><br><br><br><br>
 			      </form>    

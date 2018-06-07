@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user") != null) {
-			response.sendRedirect("homepage.jsp");
+			response.sendRedirect("Customer.jsp");
 			return;
 		}
 		List<String> errors = new ArrayList<String>();
@@ -63,6 +63,8 @@ public class Login extends HttpServlet {
 					d.forward(request, response);
 					return;
 				}
+				System.out.println(form.getEmail());
+				System.out.println(form.getPassword());
 				if (!form.getPassword().equals(user.getPassword())) {
 					errors.add("Incorrect password");
 					RequestDispatcher d = request.getRequestDispatcher("login.jsp");
@@ -70,7 +72,7 @@ public class Login extends HttpServlet {
 					return;
 				}
 				session.setAttribute("user", user);
-				RequestDispatcher d = request.getRequestDispatcher("homepage.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("Customer.jsp");
 				d.forward(request, response);
 				//response.sendRedirect("homepage.jsp");
 			}
