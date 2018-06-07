@@ -36,8 +36,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="Auditor.html">Homepage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
-          <a class="navbar-brand" href="">History Record &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
+          <a class="navbar-brand" href="">Homepage &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>  
           <a class="navbar-brand" href="">Setting &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
           <a class="navbar-brand" href="">Profile &nbsp;&nbsp;</a>
         </div><!-- /.nav-collapse -->

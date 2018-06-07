@@ -38,7 +38,6 @@ public class Auditor extends HttpServlet {
 		HttpSession session = request.getSession();
 		try {
 			ArrayList<EnrolledUser> enrolledUsers = enrolledUserDAO.getUser();
-			System.out.println(enrolledUsers.get(0));
 			session.setAttribute("enrolledUsers", enrolledUsers);
 		} catch (RollbackException e) {
 			e.printStackTrace();

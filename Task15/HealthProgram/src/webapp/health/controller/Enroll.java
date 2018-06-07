@@ -68,16 +68,19 @@ public class Enroll extends HttpServlet {
 					try {
 						enrolledUserDAO.create(user);
 						session.setAttribute("EnrolledUser", user);
-						System.out.println("SUCCESS");
 					} catch (DuplicateKeyException e) {
 	                    e.printStackTrace();
 					}
 					RequestDispatcher d = request.getRequestDispatcher("success.jsp");
 					d.forward(request, response);
+					return;
 				}
-				RequestDispatcher d = request.getRequestDispatcher("enroll.jsp");
+				RequestDispatcher d = request.getRequestDispatcher("success.jsp");
 				d.forward(request, response);
+				return;
 			}
+			RequestDispatcher d = request.getRequestDispatcher("enroll.jsp");
+			d.forward(request, response);
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			RequestDispatcher d = request.getRequestDispatcher("error.jsp");

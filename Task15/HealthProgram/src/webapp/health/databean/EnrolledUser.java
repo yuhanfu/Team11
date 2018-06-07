@@ -6,7 +6,7 @@ import org.genericdao.PrimaryKey;
 public class EnrolledUser {
 	private String email;
 	private String address;
-	private String PhoneNumber;
+	private String phoneNumber;
 	private String firstName;
 	private String lastName;
 	
@@ -23,10 +23,10 @@ public class EnrolledUser {
 		this.address = address;
 	}
 	public String getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 	public String getFirstName() {
 		return firstName;

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 public class EnrollForm {
 	private String email;
 	private String address;
-	private String PhoneNumber;
+	private String phoneNumber;
 	private String firstName;
 	private String lastName;
 	private String button;
@@ -16,7 +16,7 @@ public class EnrollForm {
 	public EnrollForm(HttpServletRequest request) {
 		email = request.getParameter("email");
 		address = request.getParameter("address");
-		PhoneNumber = request.getParameter("phoneNumber");
+		phoneNumber = request.getParameter("phoneNumber");
 		firstName = request.getParameter("firstname");
 		lastName = request.getParameter("lastname");
 		button = request.getParameter("button");
@@ -31,7 +31,7 @@ public class EnrollForm {
 	}
 
 	public String getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public String getFirstName() {
